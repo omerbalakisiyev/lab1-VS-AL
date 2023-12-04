@@ -1,0 +1,40 @@
+import random
+lst = [ ]
+l = 0
+cem = 0
+for i in range(10):
+    number = random.randint(0, 101)
+    lst = lst + [number]
+print("lst = ", lst)
+#ededleri secdiyimiz yer bitti
+
+#fayl-a yazma baslayir
+f = open('file1.txt', 'w')
+f.write('\n')
+for i in range(len(lst)):
+    if i%2==0:
+        cut = lst[i]
+        l = l+1
+        f.write(str(cut) + ' ')
+f.close()
+#fayl-a yazma bitti
+
+
+# fayli oxuma baslayir
+f=open('file1.txt','r')
+s=f.readline()
+lst2=[ ]
+for line in f:
+    strs=line.split(' ')#strs vektorunun yaradilmasi
+    print('strs=',strs)
+    for s in strs:
+        if s!='':
+            lst2=lst2+[int(s)]
+print('lst2=',lst2)
+f.close()
+#fayli oxuma yeri bitti
+
+for i in lst2:
+    print(i)
+    cem+=i
+print('cut yerde duran ededlerin cemi =',cem)
